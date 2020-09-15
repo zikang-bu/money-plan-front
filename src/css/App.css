@@ -52,7 +52,13 @@
 }
 
 .main_content {
-  margin: 0 50px;
+  width: 960px;
+  padding: 32px 19px 15px;
+  margin: 0 auto;
   height: calc(100vh - 64px);
   background: white;
+}
+
+.menu {
+  margin-bottom: 20px!important;
 }

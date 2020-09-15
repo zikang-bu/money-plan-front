@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import { Menu } from "antd";
 import { DollarCircleOutlined, AccountBookOutlined } from "@ant-design/icons";
 import BookDetail from "./BookDetail";
+import { ExpendList, IncomeList } from "../../lib/const";
 
 class Book extends Component {
   state = {
     current: "expend",
   };
   handleClick = (e) => {
-    console.log("click ", e);
-    this.setState({ current: e.key });
+    this.setState({
+      current: e.key,
+    });
   };
   render() {
     const { current } = this.state;
@@ -19,6 +21,7 @@ class Book extends Component {
           onClick={this.handleClick}
           selectedKeys={[current]}
           mode="horizontal"
+          className="menu"
         >
           <Menu.Item key="expend" icon={<DollarCircleOutlined />}>
             支出
@@ -27,7 +30,10 @@ class Book extends Component {
             收入
           </Menu.Item>
         </Menu>
-        <BookDetail type={current} />
+        <BookDetail
+          type={current}
+          options={current === "expend" ? ExpendList : IncomeList}
+        />
       </div>
     );
   }
